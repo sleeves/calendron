@@ -1,0 +1,12 @@
+<h1>Listing Calendars</h1>
+
+<% for calendar in @calendars: %>
+  <div class="item" data-id="<%= calendar.id %>">
+    <a data-type="show"><%= calendar.title %></a>
+    
+    <a data-type="edit">Edit</a> 
+    <a data-type="destroy">Destroy</a>
+  </div>
+<% end %>
+
+<p><a data-type="new">New Calendar</a></p>
