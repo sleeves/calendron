@@ -5,11 +5,11 @@ class DisplayACalendar < Spinach::FeatureSteps
   end
 
   When 'I\'m on the \'Work\' calendar page' do
-    raise 'step not implemented'
+    visit '/calendars/work'
   end
 
   Then 'I should see the title \'Work\'' do
-    raise 'step not implemented'
+    page.has_content?('Work').should == true
   end
 end
 

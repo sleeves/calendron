@@ -1,4 +1,8 @@
 Calendron::Application.routes.draw do
+
+  resources :calendars
+
+  #match '/calendars/:name' => 'calendars#by_name'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

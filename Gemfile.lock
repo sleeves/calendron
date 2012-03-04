@@ -48,6 +48,11 @@ GEM
     coffee-script-source (1.2.0)
     colorize (0.5.8)
     diff-lcs (1.1.3)
+    eco (1.0.0)
+      coffee-script
+      eco-source
+      execjs
+    eco-source (1.1.0.rc.1)
     erubis (2.7.0)
     execjs (1.3.0)
       multi_json (~> 1.0)
@@ -71,6 +76,7 @@ GEM
     guard-spinach (0.0.1.1)
       guard
       spinach
+    haml (3.1.4)
     hike (1.2.1)
     i18n (0.6.0)
     jasmine (1.1.2)
@@ -170,7 +176,7 @@ GEM
     treetop (1.4.10)
       polyglot
       polyglot (>= 0.3.1)
-    tzinfo (0.3.31)
+    tzinfo (0.3.32)
     uglifier (1.2.3)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
@@ -182,11 +188,13 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
+  eco
   factory_girl_rails
   guard
   guard-jasmine-headless-webkit
   guard-rspec
   guard-spinach
+  haml
   jasmine
   jasmine-headless-webkit
   jasmine-spec-extras
