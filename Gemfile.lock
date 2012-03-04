@@ -51,6 +51,11 @@ GEM
     erubis (2.7.0)
     execjs (1.3.0)
       multi_json (~> 1.0)
+    factory_girl (2.6.1)
+      activesupport (>= 2.3.9)
+    factory_girl_rails (1.7.0)
+      factory_girl (~> 2.6.0)
+      railties (>= 3.0.0)
     ffi (1.0.11)
     gherkin-ruby (0.1.0)
       racc
@@ -177,6 +182,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
+  factory_girl_rails
   guard
   guard-jasmine-headless-webkit
   guard-rspec

@@ -1,7 +1,7 @@
 class DisplayACalendar < Spinach::FeatureSteps
   feature 'Display a calendar'
-  Given 'I have a calendar called Work' do
-    raise 'step not implemented'
+  Given 'I have a calendar titled Work' do
+    work_calendar = Factory(:calendar, :title => "Work")
   end
 
   When 'I\'m on the \'Work\' calendar page' do
