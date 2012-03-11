@@ -14,13 +14,13 @@
       %tbody
         - @time = Time.now.beginning_of_day
         - 96.times do
-          %tr
+          %tr{:id => @time.strftime("%H%M") }
             %td 
               = (@time += 15.minutes).strftime("%H:%M")
-            %td
-            %td
-            %td
-            %td
-            %td
-            %td
-            %td
+            %td.mon
+            %td.tues
+            %td.wed
+            %td.thurs
+            %td.fri
+            %td.sat
+            %td.sun
