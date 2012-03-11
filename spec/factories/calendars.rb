@@ -2,7 +2,6 @@
 
 FactoryGirl.define do
   factory :calendar do
-    title "MyString"
-    ical "MyString"
+    title "Work"
   end
 end
