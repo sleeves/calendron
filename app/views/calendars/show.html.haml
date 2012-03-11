@@ -6,29 +6,28 @@
           %th Time
           %th Monday
           %th Tuesday
-          %th Wedensday
+          %th Wednesday
           %th Thursday
           %th Friday
           %th Saturday
           %th Sunday
       %tbody
-        - @time = Time.now.beginning_of_day
+        - @week.time = @time = Time.now.beginning_of_day
         - 96.times do
           %tr{:id => @time.strftime("%H%M") }
-            - @events.time = @time.strftime("%H%M")
             %td 
               = (@time += 15.minutes).strftime("%H:%M")
-            %td.mon{:class => @events.css_class }
-              = @events.mon
-            %td.tues
-              = @events.tues
-            %td.wed
-              = @events.wed
-            %td.thurs
-              = @events.thurs
-            %td.fri
-              = @events.fri
-            %td.sat
-              = @events.sat
-            %td.sun
-              = @events.sun
+            %td.mon{:class => @week.mon[:css_class] }
+              = @week.mon[:text]
+            %td.tues{:class => @week.tues[:css_class] }
+              = @week.tues[:text]
+            %td.wed{:class => @week.wed[:css_class] }
+              = @week.wed[:text]
+            %td.thurs{:class => @week.thurs[:css_class] }
+              = @week.thurs[:text]
+            %td.fri{:class => @week.fri[:css_class] }
+              = @week.fri[:text]
+            %td.sat{:class => @week.sat[:css_class] }
+              = @week.sat[:text]
+            %td.sun{:class => @week.sun[:css_class] }
+              = @week.sun[:text]
