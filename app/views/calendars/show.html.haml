@@ -1,30 +1,26 @@
-#app
-  :javascript
-    $(function(){
-      new App({el: $("#app")});
-      })
-
-%table
-  %thead
-    %tr
-      %th Time
-      %th Monday
-      %th Tuesday
-      %th Wedensday
-      %th Thursday
-      %th Friday
-      %th Saturday
-      %th Sunday
-  %tbody
-    - @time = Time.now.beginning_of_day
-    - 96.times do
-      %tr
-        %td 
-          = (@time += 15.minutes).strftime("%H:%M")
-        %td
-        %td
-        %td
-        %td
-        %td
-        %td
-        %td
+.row
+  .span12
+    %table
+      %thead
+        %tr
+          %th Time
+          %th Monday
+          %th Tuesday
+          %th Wedensday
+          %th Thursday
+          %th Friday
+          %th Saturday
+          %th Sunday
+      %tbody
+        - @time = Time.now.beginning_of_day
+        - 96.times do
+          %tr
+            %td 
+              = (@time += 15.minutes).strftime("%H:%M")
+            %td
+            %td
+            %td
+            %td
+            %td
+            %td
+            %td
