@@ -15,11 +15,7 @@ class CalendarsController < ApplicationController
   # GET /calendars/1.json
   def show
     @week = Week.new(DateTime.now.beginning_of_week)
-    if params[:id].to_i == 0
-      @calendar = Calendar.find_by_title(params[:id])
-    else
-      @calendar = Calendar.find(params[:id])
-    end
+    @calendar = Calendar.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
