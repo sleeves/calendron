@@ -10,6 +10,8 @@ gem 'sqlite3'
 gem 'haml'
 gem 'eco'
 
+gem 'friendly_id'
+
 gem 'ruby-debug19'
 # Gems used only for assets and not required
 # in production environments by default.

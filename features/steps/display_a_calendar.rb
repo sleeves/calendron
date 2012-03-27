@@ -2,7 +2,7 @@
 class DisplayACalendar < Spinach::FeatureSteps
   feature 'Display a calendar'
   Given 'I have a calendar titled Work' do
-    work_calendar = Factory(:calendar)
+    work_calendar = Factory(:calendar, :title => "Work")
   end
 
   Given 'I\'m on the \'Calendars\' page' do
@@ -14,8 +14,6 @@ class DisplayACalendar < Spinach::FeatureSteps
   end
 
   Then 'I should see the title \'Work\'' do
-    # debugger
-    p page.html
     page.has_content?('Work').should == true
   end
 

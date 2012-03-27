@@ -68,6 +68,7 @@ GEM
       factory_girl (~> 2.6.0)
       railties (>= 3.0.0)
     ffi (1.0.11)
+    friendly_id (4.0.4)
     gherkin-ruby (0.1.0)
       racc
       rexical
@@ -210,6 +211,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   eco
   factory_girl_rails
+  friendly_id
   guard
   guard-jasmine-headless-webkit
   guard-rspec
