@@ -13,10 +13,10 @@ describe Week do
 
     @following_sun = "2012-03-12 00:00:00 +0000".to_datetime
 
-    @event = Factory(:event, :start_point => @mon, :end_point => (@mon + 30.minutes))
-    @event2 = Factory(:event, :start_point => @tues, :end_point => (@tues + 45.minutes))
-    @event3 = Factory(:event, :start_point => (@wed + 240.minutes), :end_point => (@wed + 480.minutes))
-    @out_of_scope_event = Factory(:event, :start_point => (@following_sun + 240.minutes), :end_point => (@following_sun + 480.minutes))
+    @event = FactoryGirl.create(:event, :start_point => @mon, :end_point => (@mon + 30.minutes))
+    @event2 = FactoryGirl.create(:event, :start_point => @tues, :end_point => (@tues + 45.minutes))
+    @event3 = FactoryGirl.create(:event, :start_point => (@wed + 240.minutes), :end_point => (@wed + 480.minutes))
+    @out_of_scope_event = FactoryGirl.create(:event, :start_point => (@following_sun + 240.minutes), :end_point => (@following_sun + 480.minutes))
   end
   
   describe "#new" do
