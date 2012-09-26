@@ -13,7 +13,9 @@ class CalendarsController < ApplicationController
 
   # GET /calendars/1
   # GET /calendars/1.json
+  # calendars/my-calendar?week=21-3-2012
   def show
+
     @week = Week.new(DateTime.now.beginning_of_week)
     @calendar = Calendar.find(params[:id])
 

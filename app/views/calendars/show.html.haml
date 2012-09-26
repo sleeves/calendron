@@ -1,10 +1,12 @@
 .row
   %h1
     = @calendar.title
+  = label_tag :mode, "Mode"
+  = select_tag :mode, ["Daily", "Weekly", "Monthly", "Annual"]
 .row
-  .span12
-    %table
-      %thead
+  .span8
+    %table#calendar
+      %thead#week_view
         %tr
           %th Time
           %th Monday
@@ -14,24 +16,39 @@
           %th Friday
           %th Saturday
           %th Sunday
-      %tbody
+      %tbody#display_quarters
         - @week.time = @time = Time.now.beginning_of_day
         - 96.times do
           %tr{:id => @time.strftime("%H%M") }
-            %td 
+            %td
               = (@time += 15.minutes).strftime("%H:%M")
-            %td.mon{:class => @week.mon[:css_class] }
+            %td.day.mon{:class => @week.mon[:css_class] }
               = @week.mon[:text]
-            %td.tues{:class => @week.tues[:css_class] }
+            %td.day.tues{:class => @week.tues[:css_class] }
               = @week.tues[:text]
-            %td.wed{:class => @week.wed[:css_class] }
+            %td.day.wed{:class => @week.wed[:css_class] }
               = @week.wed[:text]
-            %td.thurs{:class => @week.thurs[:css_class] }
+            %td.day.thurs{:class => @week.thurs[:css_class] }
               = @week.thurs[:text]
-            %td.fri{:class => @week.fri[:css_class] }
+            %td.day.fri{:class => @week.fri[:css_class] }
               = @week.fri[:text]
-            %td.sat{:class => @week.sat[:css_class] }
+            %td.day.sat{:class => @week.sat[:css_class] }
               = @week.sat[:text]
-            %td.sun{:class => @week.sun[:css_class] }
+            %td.day.sun{:class => @week.sun[:css_class] }
               = @week.sun[:text]
             - @week.time = @time
+  .span4
+    %h2
+      Add an event
+    %form
+      %label
+        Title
+      %input{:type => "text" }
+      %label
+        Starts
+      %input{:type => "text" }
+      %br
+      %label
+        Ends
+      %input{:type => "text" }
+

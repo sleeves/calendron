@@ -1,4 +1,4 @@
-Feature: Display a calendar
+Feature: Display a calendar in Week mode
   In order to know what day it is
   As a developer
   I want to see the calendar
@@ -10,13 +10,13 @@ Feature: Display a calendar
     Given I'm on the 'Calendars' page
     Then I should see 'Listing Calendars'
 
-  Scenario: Viewing the calendar
+  Scenario: Viewing the calendar in Week mode
     When I'm on the 'Work' calendar page
     Then I should see the title 'Work'
-    And I should see "Mode"
-    And the mode should be 'Week view'
+    Then I should see 'Mode'
+    And the date mode should be Weekly
     And the time mode should be 'Quarterly'
-    And I should see the calendar:
+    Then I should see the calendar
     And I should see all the days of the week
 
   Scenario: Add an event to the Work calendar
@@ -24,3 +24,6 @@ Feature: Display a calendar
     When I click on 12pm on Monday
     Then I should see the "Add Event" dialog
 
+#Feature: Display a calendar in Month mode
+
+#Feature: Display a calendar in Day mode
