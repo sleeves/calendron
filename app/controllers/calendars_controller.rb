@@ -18,6 +18,7 @@ class CalendarsController < ApplicationController
 
     @week = Week.new(DateTime.now.beginning_of_week)
     @calendar = Calendar.find(params[:id])
+    @event = @calendar.events.build
 
     respond_to do |format|
       format.html # show.html.erb
@@ -39,6 +40,21 @@ class CalendarsController < ApplicationController
   # GET /calendars/1/edit
   def edit
     @calendar = Calendar.find(params[:id])
+  end
+
+  def add_event
+    @calendar = Calendar.find params[:calendar_id]
+    @event = Event.new(params[:event])
+
+    respond_to do |format|
+      if @event.save
+        format.html { redirect_to @calendar, notice: 'Calendar was successfully created.' }
+        format.json { render json: @ecalendar, status: :created, location: @calendar}
+      else
+        format.html { render action: "new" }
+        format.json { render json: @event.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # POST /calendars

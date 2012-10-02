@@ -117,8 +117,19 @@ class DisplayACalendarInWeekMode < Spinach::FeatureSteps
   end
 
   When 'I click on 12pm on Monday' do
-    # a dialog box should appear in the screen, maybe accordianing from the left or right, instead of a dialog
-    # an event stub should appear in the calendar at the exact point
+    find("#0000 .mon").click
+  end
+
+  Then 'I should not see the "Add Event" dialog' do
+    page.should have_css("#add_event.hidden")
+  end
+
+  Then 'I should see the "Add Event" dialog' do
+    page.should_not have_css("#add_event.hidden")
+  end
+
+  And 'I should see an event stub for 12pm on Monday' do
+    page.should have_css "#0000 .event_stub.mon"
   end
 
 end

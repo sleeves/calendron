@@ -6,4 +6,9 @@ require_relative '../../config/environment'
 require 'capybara-webkit'
 
 Capybara.javascript_driver = :webkit
+
 Capybara.current_driver = Capybara.javascript_driver
+
+Spinach.hooks.on_tag("javascript") do
+  ::Capybara.current_driver = ::Capybara.javascript_driver
+end

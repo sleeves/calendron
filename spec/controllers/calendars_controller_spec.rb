@@ -26,7 +26,7 @@ describe CalendarsController do
   def valid_attributes
     {}
   end
-  
+
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # CalendarsController. Be sure to keep this updated too.
@@ -101,24 +101,29 @@ describe CalendarsController do
         response.should render_template("new")
       end
     end
-  end
+  en
+=end
 
   describe "PUT update" do
     describe "with valid params" do
+      before do
+        @title = "test"
+        @calendar = Calendar.create! :title => @title
+        @update_params = {"calendar"=>{"new_event_attributes"=>{"title"=>"test new event", "start_point"=>"", "end_point"=>"", "calendar_id"=>"#{@calendar.id}"}}, "commit"=>"Add", "id"=>@title}
+      end
+
       it "updates the requested calendar" do
-        calendar = Calendar.create! valid_attributes
         # Assuming there are no other calendars in the database, this
         # specifies that the Calendar created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Calendar.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, {:id => calendar.to_param, :calendar => {'these' => 'params'}}, valid_session
+        expect { put :update, @update_params, valid_session }.to change(Event, :count).by(1)
       end
 
-      it "assigns the requested calendar as @calendar" do
-        calendar = Calendar.create! valid_attributes
-        put :update, {:id => calendar.to_param, :calendar => valid_attributes}, valid_session
-        assigns(:calendar).should eq(calendar)
+      it "sets the calendar id on the event object" do
+        put :update, @update_params, valid_session
+        binding.pry
+        Event.last.calendar_id.should == @calendar.id
       end
 
       it "redirects to the calendar" do
@@ -147,6 +152,7 @@ describe CalendarsController do
     end
   end
 
+=begin
   describe "DELETE destroy" do
     it "destroys the requested calendar" do
       calendar = Calendar.create! valid_attributes

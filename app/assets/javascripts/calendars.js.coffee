@@ -4,6 +4,7 @@
 #
 
 show_event_pane_for = (element)->
+  $('#add_event').removeClass('hidden')
 
 $('td.day').live 'click', ->
   if $(this).hasClass('no_event')

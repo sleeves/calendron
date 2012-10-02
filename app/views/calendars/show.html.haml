@@ -38,17 +38,19 @@
               = @week.sun[:text]
             - @week.time = @time
   .span4
-    %h2
-      Add an event
-    %form
-      %label
-        Title
-      %input{:type => "text" }
-      %label
-        Starts
-      %input{:type => "text" }
-      %br
-      %label
-        Ends
-      %input{:type => "text" }
+    #add_event.hidden
+      %h2
+        Add an event
+      = form_for @event, :url => calendar_add_event_path(@calendar), :remote => true do |e|
+        = e.label :title
+        = e.text_field :title
 
+        = e.label :start_point, "Starts"
+        = e.text_field :start_point
+
+        = e.label :end_point, "Ends"
+        = e.text_field :end_point
+
+        = e.hidden_field :calendar_id#, :value => @calendar.id
+
+        = e.submit "Add"

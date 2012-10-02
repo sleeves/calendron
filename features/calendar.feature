@@ -19,11 +19,10 @@ Feature: Display a calendar in Week mode
     Then I should see the calendar
     And I should see all the days of the week
 
+  @javascript
   Scenario: Add an event to the Work calendar
-    Given I'm on the 'Calendars' page
+    When I'm on the 'Work' calendar page
+    Then I should not see the "Add Event" dialog
     When I click on 12pm on Monday
     Then I should see the "Add Event" dialog
-
-#Feature: Display a calendar in Month mode
-
-#Feature: Display a calendar in Day mode
+    And I should see an event stub for 12pm on Monday
